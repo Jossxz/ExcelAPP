@@ -1,0 +1,30 @@
+* Upar no Github >
+* Code Excel - Versão de Test 0.3
+- fazer para o excel instalado na maquina
+
+ON-STAGE | FRONT-END
+Import pyperclip,
+from openpyxl import load_workbook,
+import keyboard,
+
+OFF-STAGE | BACK-END
+import xlwings: VBA e xlwings: Use VBA para chamar funções Python no 
+momento da abertura do arquivo Excel.
+import win32com.client as win32: O Python pode interagir diretamente 
+com o Excel aberto, manipulando as células e salvando os dados em tempo real
+import multiprocessing,
+import time,
+
+
+[ RESUME - FIXED PATCH:
+16/01/2024 0.3:
+ Implementei o código no excel, consegui escrever
+as informações no excel via VSCode, E achei uma lib para 
+excutar o excel em tempo real 'win32com.cliente'
+]
+
+previnir bugs:
+
+BUGS:
+- Estou conseguindo mudar os dados via VScodew porém 
+apenas, com a planilha fechada no excel.
