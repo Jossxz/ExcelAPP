@@ -2,7 +2,7 @@
 * Code Excel - Versão de Test 0.3
 - fazer para o excel instalado na maquina
 
-ON-STAGE | FRONT-END
+ON-STAGE | FRONT-END / feito
 Import pyperclip,
 from openpyxl import load_workbook,
 import keyboard,

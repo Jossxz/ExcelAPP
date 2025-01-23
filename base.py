@@ -1,5 +1,3 @@
-# base v0.3
-
 # O import Abaixo, serve para o acesso da lista de Copiar e colar da Máquina 
 import pyperclip
 # O Import Abaixo, serve para indentificar Inputs pressionados no Teclado
@@ -7,19 +5,28 @@ import keyboard
 # O import Abaixo, Serve para Executar comandos diretos no Excel utilizando de um webHook
 from openpyxl import load_workbook
 
-env = '16.01.0001.xlsx'  # Substitua com o caminho do seu arquivo
+# interagir diretamente com o Excel aberto, manipulando as células e salvando os dados em tempo real
+import win32com.client as win32
+
+excel = win32.Dispatch('Excel.Application')
+excel.Visible = True
+
+workbook = excel.Workbooks.Open("16.01.0001.xlsx")
+
 wb = load_workbook(env)
 sheet = wb.active
 
-sheet ['A2'] = '666.666.666-12'
-sheet ['B2'] = 'Roberto Carlos Da Silva'
-sheet ['C2'] = '12121'
-sheet ['D2'] = 'AG'
-sheet ['E2'] = 'X'
-sheet ['F2'] = 'Cancelamento'
-sheet ['G2'] = 'Total'
-sheet ['H2'] = 400
-sheet ['I2'] = '7780'
+sheet.Cells(1, 1).Value = "Nome"
+sheet.Cells(1, 2).Value = "Idade"
+
+# Adicionar mais dados em células subsequentes
+sheet.Cells(2, 1).Value = "João"
+sheet.Cells(2, 2).Value = 30
+
+sheet.Cells(3, 1).Value = "Maria"
+sheet.Cells(3, 2).Value = 25
+
+
 wb.save(env)
 
 # Colar o texto da área de transferência
