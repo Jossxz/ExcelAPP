@@ -5,12 +5,11 @@
 
 DESCRIÇÃO DO CODE | 
  é um script que serve para pessoas que já estão acostumadas com a planilha padrão de baixas,
-para facilitar o esforço foi desenvolvido uma aplicação que funciona internamente na máquina 
-após ativa, Ela funciona por comandos, "CRTL+ALT+P" Cola o ultimo dado selecionado, para 
-definir onde o valor ira, basta deixar selecionado a opção "NUMLOCK" para selecionar uma das linhas
-aperte o teclado númerico para deixar selecionado(para escolher alguma linha além do valor já obtido no 
-teclado numerico, "SHIFT+NUM" porém o NUMLOCk deve estár ativo), para ir pra próxima coluna, aperte as teclas
-"CTRL+ALT+RIGHT" para selecionar a coluna da direita ou para voltar,"CTRL+ALT+LEFT" para selecionar a da esquerda.
+para facilitar o esforço foi desenvolvido uma aplicação que funciona internamente na máquina
+Funcionamento do projeto: o úsuario seleciona a linha e após utilizar o comando de colar o código 
+move-se para a direita. teclado Numérico funciona como um meio de pesquisa para selecionar colunas 
+especificas. SEMPRE APERTAR "ESC" após o termino do código por enquanto só funciona em Excel em Desktop. 
+Não em WEB
 
 ON-STAGE | FRONT-END / feito
 Import pyperclip,
