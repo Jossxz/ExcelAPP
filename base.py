@@ -1,30 +1,41 @@
-import os
 import pyperclip
 import keyboard
-from openpyxl import load_workbook
-import win32com.client as win32
+import xlwings as xw
+import time
 
-# Caminho para o arquivo Excel
-link_ = R"C:\Users\olive\Downloads\Projects\Projetos\Python\Excel_Config\16.01.0001.xlsx"
+excel_path = R"C:\Users\olive\Downloads\Projects\Projetos\Python\Excel_Config\16.01.0001.xlsx"
 
-# Inicializando o Excel e abrindo o arquivo
-excel = win32.Dispatch('Excel.Application')
-excel.Visible = True
-workbook = excel.Workbooks.Open(link_)
-sheet = workbook.ActiveSheet
+# Abre o Excel visível
+wb = xw.Book(excel_path, visible=True)
+sheet = wb.sheets[0]
 
-# Função que imprime o conteúdo da área de transferência e coloca no Excel
-def printClip():
-    txt_clip = pyperclip.paste()  # Obtém o texto da área de transferência
-    print(f"Texto copiado: {txt_clip}")
-    sheet.Cells(2, 3).Value = txt_clip  # Coloca o texto na célula A2
+print("Pressione 'ç' para colar o texto do clipboard na célula atual e mover para a direita.")
+print("Pressione 'esc' para sair.")
 
-# Associa o hotkey (atalho de teclado) para chamar a função
-keyboard.add_hotkey('ç', printClip())
+try:
+    while True:
+        if keyboard.is_pressed('ç'):
+            txt_clip = pyperclip.paste()
 
-# Mantém o script rodando, aguardando a tecla ser pressionada
-print("Pressione 'ç' para copiar o texto da área de transferência para o Excel.")
-keyboard.wait('esc')  # O script aguarda até que a tecla 'esc' seja pressionada para sair
+            # Célula selecionada no momento
+            current_cell = sheet.api.Application.ActiveCell
 
-# Libera todos os hooks de teclado ao final
-keyboard.unhook_all()
+            row = current_cell.Row
+            col = current_cell.Column
+
+            print(f"Colando '{txt_clip}' em {chr(64 + col)}{row}")
+            sheet.cells(row, col).value = txt_clip
+
+            # Move para a célula à direita
+            sheet.cells(row, col + 1).select()
+
+            time.sleep(0.3)  # Evita colagens repetidas rápidas
+
+        elif keyboard.is_pressed('esc'):
+            break
+
+        time.sleep(0.05)
+finally:
+    wb.save()
+    wb.close()
+    print("Excel salvo e fechado.") #100.100.100-01
