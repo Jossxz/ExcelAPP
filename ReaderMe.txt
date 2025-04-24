@@ -18,9 +18,14 @@ célula que você selecionou, e o cursor vai se mover para a próxima coluna, fa
 ESC no teclado. Isso vai fazer com que o programa salve o arquivo automaticamente e feche o Excel de forma segura.
 
 
+ fazer |
+como selecionar a planilha que será utilizada sem que precise utilizar do code 
+
+
  Libs - Utilizadas |
 Import pyperclip,
 from openpyxl import load_workbook,
 import keyboard,
 import xlwings,
 import time,
+pyinstaller
