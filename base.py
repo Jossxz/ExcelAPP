@@ -38,4 +38,4 @@ try:
 finally:
     wb.save()
     wb.close()
-    print("Excel salvo e fechado.") #100.100.100-01
+    print("Excel salvo e fechado.")

@@ -1,50 +1,26 @@
-* Upar no Github >
-* Code Excel - Versão de Test 0.5
-- fazer para o excel instalado na maquina
+Ec-Next
 
 
-DESCRIÇÃO DO CODE | 
+Descrição | 
  é um script que serve para pessoas que já estão acostumadas com a planilha padrão de baixas,
-para facilitar o esforço foi desenvolvido uma aplicação que funciona internamente na máquina
+para facilitar o esforço foi desenvolvido uma aplicação que funciona internamente na máquina.
 Funcionamento do projeto: o úsuario seleciona a linha e após utilizar o comando de colar o código 
 move-se para a direita. teclado Numérico funciona como um meio de pesquisa para selecionar colunas 
 especificas. SEMPRE APERTAR "ESC" após o termino do código por enquanto só funciona em Excel em Desktop. 
 Não em WEB
 
-ON-STAGE | FRONT-END / feito
+Como usar? |
+ Dentro do Excel, escolha a célula onde quer começar a colar os dados. Agora, vá até o campo que deseja colar, 
+copie o texto (Ctrl + C), volte para o Excel e pressione a tecla ç. O conteúdo será colado automaticamente na 
+célula que você selecionou, e o cursor vai se mover para a próxima coluna, facilitando a sequência.
+
+ Quando terminar de usar o script, não feche o Excel diretamente. Em vez disso, pressione a tecla 
+ESC no teclado. Isso vai fazer com que o programa salve o arquivo automaticamente e feche o Excel de forma segura.
+
+
+ Libs - Utilizadas |
 Import pyperclip,
 from openpyxl import load_workbook,
 import keyboard,
-
-OFF-STAGE | BACK-END
-import xlwings: VBA e xlwings: Use VBA para chamar funções Python no 
-momento da abertura do arquivo Excel.
-import win32com.client as win32: O Python pode interagir diretamente 
-com o Excel aberto, manipulando as células e salvando os dados em tempo real
-import multiprocessing,
+import xlwings,
 import time,
-
-
-[ RESUME - FIXED PATCH:
-16/01/2024 0.3:
- Implementei o código no excel, consegui escrever
-as informações no excel via VSCode, E achei uma lib para 
-excutar o excel em tempo real 'win32com.cliente'
-
-29/01/2024 0.4:
- colocar o valor copiado em qualquer celula, fiz descrição do funcionamento do projeto
-
-26/03/2025 0.5:
- Dei suporte a todas as libs, código está funcional porém está dando um "erro" no terminal sempre que utilizo
-starto a func
-]
-
-
-
-previnir bugs:
-
-BUGS:
-- Estou conseguindo mudar os dados via VScodew porém 
-apenas, com a planilha fechada no excel - Resolvido
-
-- pensar em uma forma de executar e ter o botão de ligar/desligar
