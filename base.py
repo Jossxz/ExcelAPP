@@ -2,8 +2,23 @@ import pyperclip
 import keyboard
 import xlwings as xw
 import time
+import tkinter as tk
+from tkinter import filedialog
 
-excel_path = R"C:\Users\olive\Downloads\Projects\Projetos\Python\Excel_Config\16.01.0001.xlsx"
+# Cria uma janelinha oculta apenas para abrir o diálogo de arquivo
+root = tk.Tk()
+root.withdraw()  # Oculta a janela principal
+
+# Abre o seletor de arquivos
+excel_path = filedialog.askopenfilename(
+    title="Selecione o arquivo Excel",
+    filetypes=[("Planilhas Excel", "*.xlsx *.xls")]
+)
+
+# Se nenhum arquivo for selecionado, encerra o programa
+if not excel_path:
+    print("Nenhum arquivo selecionado. Encerrando.")
+    exit()
 
 # Abre o Excel visível
 wb = xw.Book(excel_path, visible=True)
